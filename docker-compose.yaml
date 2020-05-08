@@ -1,0 +1,19 @@
+version: "3"
+
+networks:
+  backend:
+    driver: bridge
+
+services:
+  neo4j:
+    container_name: ${DOCKER_PREFIX:-ig}-neo4j
+    image: neo4j:4.0
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/${NEO4J_PASSWORD:-iGeorgia}
+    volumes:
+      - ./data/neo4j:/data
+    networks:
+      - backend
