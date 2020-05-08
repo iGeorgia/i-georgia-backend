@@ -8,8 +8,10 @@ Digital One Stop Place For Georgia Tourism
 
 #### Data
 
-Data lives outside of Docker in `./data` folder. Delete it or
-any of its sub-folders. It'll be re-created on next Docker run.
+Data, together with logs, lives outside of Docker in `./data` folder. I.e. `./data/neo4j/logs`.
+
+Delete it or any of its sub-folders. It'll be re-created on next Docker run.
+
 
 #### Download GraphQL Plugin
 
@@ -26,6 +28,8 @@ To override default values create `.env` file with keys from `.env.example`
 ```
 $ docker-compose up -d
 ```
+
+It'll take a few minuts to complete.
 
 #### DB Setup
 ```
