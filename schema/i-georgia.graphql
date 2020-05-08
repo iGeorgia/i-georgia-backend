@@ -1,0 +1,58 @@
+enum Direction {
+    IN
+    OUT
+}
+directive @relation(
+    name: String
+    direction: Direction
+) on FIELD_DEFINITION
+
+type Place {
+    placeId: ID!
+    name: String!
+    activities(timit: Int = 10): [Activity] @relation(name: "IS_GOOD_FOR", direction: OUT)
+    providers(timit: Int = 10): [Provider] @relation(name: "IS_IN", direction: IN)
+    seasons(timit: Int = 10): [Season] @relation(name: "IS_GOOD_FOR", direction: OUT)
+    transports(timit: Int = 10): [Transport] @relation(name: "SUPPORTS", direction: OUT)
+    tripEnds(timit: Int = 10): [Trip]  @relation(name: "ENDS_IN", direction: IN)
+    tripStarts(timit: Int = 10): [Trip]  @relation(name: "STARTS_IN", direction: IN)
+}
+
+type Trip {
+    tripId: ID!
+    name: String!
+    endPlaces(timit: Int = 10): [Place] @relation(name: "ENDS_IN", direction: OUT)
+    providers(timit: Int = 10): [Provider] @relation(name: "OWNS", direction: IN)
+    seasons(timit: Int = 10): [Season] @relation(name: "IS_GOOD_FOR", direction: OUT)
+    startPlaces(timit: Int = 10): [Place] @relation(name: "STARTS_IN", direction: OUT)
+    transports(timit: Int = 10): [Transport] @relation(name: "USES", direction: OUT)
+}
+
+type Provider {
+    providerId: ID!
+    name: String!
+    places(timit: Int = 10): [Place] @relation(name: "IS_IN", direction: OUT)
+    trips(timit: Int = 10): [Trip] @relation(name: "OWNS", direction: OUT)
+}
+
+type Transport {
+    transportId: ID!
+    name: String!
+    places(timit: Int = 10): [Place] @relation(name: "SUPPORTS", direction: IN)
+    trips(timit: Int = 10): [Trip] @relation(name: "USES", direction: IN)
+}
+
+type Activity {
+    activityId: ID!
+    name: String!
+    places(timit: Int = 10): [Place] @relation(name: "IS_GOOD_FOR", direction: IN)
+    season(timit: Int = 10): [Season] @relation(name: "IS_GOOD_FOR", direction: OUT)
+}
+
+type Season {
+    seasonId: ID!
+    name: String!
+    activities(timit: Int = 10): [Activity] @relation(name: "IS_GOOD_FOR", direction: IN)
+    places(limit: Int = 10): [Place] @relation(name: "IS_GOOD_FOR", direction: IN)
+    trips(timit: Int = 10): [Trip] @relation(name: "IS_GOOD_FOR", direction: IN)
+}
