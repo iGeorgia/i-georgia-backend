@@ -1,0 +1,5 @@
+schema: '..//schema/graphql/i-georgia.graphql'
+generates:
+  src/types/gql.ts:
+    - typescript-operations
+    - typescript

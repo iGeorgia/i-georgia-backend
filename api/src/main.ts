@@ -2,19 +2,18 @@ import { pipe } from "fp-ts/lib/pipeable";
 import * as TE from "fp-ts/lib/TaskEither";
 import path from "path";
 import { config } from "./lib/config";
+import { raise, readFileTask } from "./lib/utilities";
 import { runServer } from "./server";
-import { raise, readFile } from "./lib/utilities";
 
-
-const schemaPath = () => path.resolve(
+const schemaPath = path.resolve(
     __dirname, "..", "..", "schema", "graphql", config.GQL_SCHEMA_FILENAME,
 );
 
 const crateServerTask = (buffer: Buffer) => runServer(buffer.toString());
 
 export const main = pipe(
-    schemaPath(),
-    filename => readFile(filename, "utf8"),
+    schemaPath,
+    path => readFileTask(path, "utf8"),
     TE.map(crateServerTask),
     TE.fold(raise, task => () => task),
 );

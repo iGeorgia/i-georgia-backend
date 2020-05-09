@@ -6,7 +6,7 @@ export const debug = (key?: string) => <T>(tag: T): T => {
     return tag;
 };
 
-export const readFile: (filename: string, encoding: string) =>
+export const readFileTask: (filename: string, encoding: string) =>
     TaskEither<NodeJS.ErrnoException, Buffer> = taskify(fs.readFile);
 
 export const raise = (e: Error) => {
@@ -15,5 +15,5 @@ export const raise = (e: Error) => {
 
 export default {
     debug,
-    readFile,
+    readFile: readFileTask,
 };
