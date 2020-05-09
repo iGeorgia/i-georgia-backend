@@ -7,7 +7,7 @@ networks:
 services:
   neo4j:
     container_name: ${DOCKER_PREFIX:-ig}-neo4j
-    image: mtavkhelidze/neo4j-apoc-algo-graphql:3.5.14
+    image: mtavkhelidze/neo4j-apoc:latest
     restart: unless-stopped
     ports:
       - "7474:7474"

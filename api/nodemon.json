@@ -1,0 +1,19 @@
+{
+    "restartable": "rs",
+    "ignore": [
+        "node_modules/**/node_modules"
+    ],
+    "verbose": false,
+    "events": {
+    },
+    "watch": [
+        ".",
+        "src",
+        "test/fixtures/",
+        "test/samples/"
+    ],
+    "env": {
+        "NODE_ENV": "development"
+    },
+    "ext": "ts,json"
+}

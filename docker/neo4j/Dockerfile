@@ -1,6 +1,5 @@
-FROM neo4j:3.5.14
+FROM neo4j:4.0.4
 
-ENV NEO4JLABS_PLUGINS='["apoc", "graph-algorithms", "graphql"]'
-ENV NEO4J_dbms_unmanaged__extension__classes="org.neo4j.graphql=/graphql"
+ENV NEO4JLABS_PLUGINS='["apoc"]'
 
 CMD ["neo4j"]
