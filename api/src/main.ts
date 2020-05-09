@@ -1,9 +1,9 @@
+import { config } from "@lib/config";
+import { raise, readFile } from "@lib/utilities";
 import { pipe } from "fp-ts/lib/pipeable";
 import * as TE from "fp-ts/lib/TaskEither";
 import path from "path";
-import { config } from "./config";
 import { server } from "./server";
-import { raise, readFile } from "./utilities";
 
 
 const schemaPath = () => path.resolve(
