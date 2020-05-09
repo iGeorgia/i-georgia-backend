@@ -17,7 +17,4 @@ CREATE
   (trip)-[:`USES` ]->(transport);
 
 CREATE CONSTRAINT ON (p:Place) ASSERT p.name IS UNIQUE;
-
 CREATE CONSTRAINT ON (s:Season) ASSERT s.name IS UNIQUE;
-
-CREATE (p:Place {name: 'Tbilisi'});

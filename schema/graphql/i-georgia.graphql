@@ -1,74 +1,53 @@
-enum Direction {
-    IN
-    OUT
-}
-
-directive @relation(
-    name: String!
-    direction: Direction!
-) on FIELD_DEFINITION
-
-directive @cypher(
-    statement: String!
-) on FIELD_DEFINITION
-
 type Place {
-    placeId: ID!
+    id: ID!
     name: String!
-    activities(limit: Int = 10): [Activity] @relation(name: "IS_GOOD_FOR", direction: OUT)
-    providers(limit: Int = 10): [Provider] @relation(name: "IS_IN", direction: IN)
-    seasons(limit: Int = 10): [Season] @relation(name: "IS_GOOD_FOR", direction: OUT)
-    transports(limit: Int = 10): [Transport] @relation(name: "SUPPORTS", direction: OUT)
-    tripEnds(limit: Int = 10): [Trip]  @relation(name: "ENDS_IN", direction: IN)
-    tripStarts(limit: Int = 10): [Trip]  @relation(name: "STARTS_IN", direction: IN)
-
-    # example of embedded neo4j query
-    activitiesForThisSeason(season: String!, limit: Int = 10): [Season] @cypher(statement:"""
-    MATCH (this)->[:IS_GOOD_FOR]->(s: Season)
-    WHERE s.name == $season
-    RETURN s LIMIT $limit
-    """)
+    activities: [Activity!]!
+    providers: [Provider!]!
+    seasons: [Season!]!
+    transports: [Transport!]!
+    tripEnds: [Trip!]!
+    tripStarts: [Trip!]!
 }
 
 type Trip {
-    tripId: ID!
+    id: ID!
     name: String!
-    endPlaces(limit: Int = 10): [Place] @relation(name: "ENDS_IN", direction: OUT)
-    providers(limit: Int = 10): [Provider] @relation(name: "OWNS", direction: IN)
-    seasons(limit: Int = 10): [Season] @relation(name: "IS_GOOD_FOR", direction: OUT)
-    startPlaces(limit: Int = 10): [Place] @relation(name: "STARTS_IN", direction: OUT)
-    transports(limit: Int = 10): [Transport] @relation(name: "USES", direction: OUT)
+    endPlaces: [Place!]!
+    providers: [Provider!]!
+    seasons: [Season!]!
+    startPlaces: [Place!]!
+    transports: [Transport!]!
 }
 
 type Provider {
-    providerId: ID!
+    id: ID!
     name: String!
-    places(limit: Int = 10): [Place] @relation(name: "IS_IN", direction: OUT)
-    trips(limit: Int = 10): [Trip] @relation(name: "OWNS", direction: OUT)
+    places: [Place!]!
+    trips: [Trip!]!
 }
 
 type Transport {
-    transportId: ID!
+    id: ID!
     name: String!
-    places(limit: Int = 10): [Place] @relation(name: "SUPPORTS", direction: IN)
-    trips(limit: Int = 10): [Trip] @relation(name: "USES", direction: IN)
+    places: [Place!]!
+    trips: [Trip!]!
 }
 
 type Activity {
-    activityId: ID!
+    id: ID!
     name: String!
-    places(limit: Int = 10): [Place] @relation(name: "IS_GOOD_FOR", direction: IN)
-    season(limit: Int = 10): [Season] @relation(name: "IS_GOOD_FOR", direction: OUT)
+    places: [Place!]!
+    season: [Season!]!
 }
 
 type Season {
-    seasonId: ID!
+    id: ID!
     name: String!
-    activities(limit: Int = 10): [Activity] @relation(name: "IS_GOOD_FOR", direction: IN)
-    places(limit: Int = 10): [Place] @relation(name: "IS_GOOD_FOR", direction: IN)
-    trips(limit: Int = 10): [Trip] @relation(name: "IS_GOOD_FOR", direction: IN)
+    activities: [Activity!]!
+    places: [Place!]!
+    trips: [Trip!]!
 }
 
 type Query {
-    places: [Place]
+    places(which: String!): [Place!]!
 }
