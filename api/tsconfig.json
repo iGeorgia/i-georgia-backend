@@ -2,12 +2,6 @@
   "compilerOptions": {
     "incremental": true,
     "outDir": "build",
-    "baseUrl": ".",
-    "paths": {
-      "@lib/*": [
-        "./src/lib/*"
-      ]
-    },
     "lib": [
       "esnext"
     ],

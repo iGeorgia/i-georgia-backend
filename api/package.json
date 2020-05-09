@@ -1,32 +1,35 @@
 {
-    "name": "i-georgia-backend",
-    "version": "1.0.0",
-    "description": "iGeorgia --- Digital One Stop Place For Georgia Tourism",
-    "main": "src/index.ts",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/iGeorgia/i-georgia-backend.git"
-    },
-    "keywords": [],
-    "author": "IGeorgia Team <info@igeorgia.ge>",
-    "license": "UNLICENSED",
-    "bugs": {
-        "url": "https://github.com/iGeorgia/i-georgia-backend/issues"
-    },
-    "homepage": "https://github.com/iGeorgia/i-georgia-backend#readme",
-    "dependencies": {
-        "@types/node": "^13.13.5",
-        "apollo-server": "^2.13.0",
-        "dotenv": "^8.2.0",
-        "fp-ts": "^2.5.4",
-        "io-ts": "^2.2.2",
-        "neo4j-driver": "^4.0.2",
-        "prettier": "^2.0.5",
-        "ts-node": "^8.10.1",
-        "typescript": "^3.8.3"
-    },
-    "devDependencies": {}
+  "name": "i-georgia-backend",
+  "version": "1.0.0",
+  "description": "iGeorgia --- Digital One Stop Place For Georgia Tourism",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "ts-node -T index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iGeorgia/i-georgia-backend.git"
+  },
+  "keywords": [],
+  "author": "IGeorgia Team <info@igeorgia.ge>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/iGeorgia/i-georgia-backend/issues"
+  },
+  "homepage": "https://github.com/iGeorgia/i-georgia-backend#readme",
+  "dependencies": {
+    "@types/node": "^13.13.5",
+    "apollo-server": "^2.13.0",
+    "dotenv": "^8.2.0",
+    "fp-ts": "^2.5.4",
+    "io-ts": "^2.2.2",
+    "neo4j-driver": "^4.0.2",
+    "prettier": "^2.0.5",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
 }

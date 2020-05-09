@@ -68,3 +68,7 @@ type Season {
     places(limit: Int = 10): [Place] @relation(name: "IS_GOOD_FOR", direction: IN)
     trips(limit: Int = 10): [Trip] @relation(name: "IS_GOOD_FOR", direction: IN)
 }
+
+type Query {
+    places: [Place]
+}

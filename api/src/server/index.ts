@@ -1,7 +1,10 @@
-import { gql } from "apollo-server";
+import { ApolloServer, gql, ServerInfo } from "apollo-server";
+import { resolvers } from "../resolvers";
 
-export const server = (schemaText: string) => {
-    const schema = gql(schemaText);
-    console.log(schema);
-    return Promise.resolve(0);
+export const runServer = (schema: string) => {
+    const typeDefs = gql(schema);
+    const server = new ApolloServer({ typeDefs, resolvers });
+    return server.listen().then((info: ServerInfo) => {
+        console.log(`Server is listening on ${info.url}`);
+    });
 };
