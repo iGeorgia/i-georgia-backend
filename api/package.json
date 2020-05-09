@@ -1,0 +1,27 @@
+{
+    "name": "i-georgia-backend",
+    "version": "1.0.0",
+    "description": "iGeorgia --- Digital One Stop Place For Georgia Tourism",
+    "main": "build/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "type": "module",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/iGeorgia/i-georgia-backend.git"
+    },
+    "keywords": [],
+    "author": "IGeorgia Team <info@igeorgia.ge>",
+    "license": "UNLICENSED",
+    "bugs": {
+        "url": "https://github.com/iGeorgia/i-georgia-backend/issues"
+    },
+    "homepage": "https://github.com/iGeorgia/i-georgia-backend#readme",
+    "dependencies": {
+        "apollo-server": "^2.13.0",
+        "neo4j-graphql-js": "^2.14.0"
+    },
+    "devDependencies": {
+    }
+}

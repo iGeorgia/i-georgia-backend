@@ -7,16 +7,13 @@ networks:
 services:
   neo4j:
     container_name: ${DOCKER_PREFIX:-ig}-neo4j
-    image: neo4j:4.0
+    image: mtavkhelidze/neo4j-apoc-algo-graphql:3.5.14
     restart: unless-stopped
     ports:
       - "7474:7474"
       - "7687:7687"
     environment:
       - NEO4J_AUTH=${NEO4J_USERNAME}/${NEO4J_PASSWORD}
-      - NEO4J_dbms_memory_pagecache_size=1G
-      - NEO4J_dbms.memory.heap.initial_size=1G
-      - NEO4J_dbms_memory_heap_max__size=1G
     volumes:
       - ./data/neo4j/data:/data
       - ./data/neo4j/conf:/conf

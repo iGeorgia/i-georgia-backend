@@ -1,0 +1,57 @@
+<!--
+http://www.apcjones.com/arrows
+Use Export/Edit markup to load image.
+-->
+<ul class="graph-diagram-markup" data-internal-scale="0.88" data-external-scale="1">
+  <li class="node" data-node-id="0" data-x="-1598.6259418834345" data-y="13.883202812888468">
+    <span class="caption">Place</span>
+  </li>
+  <li class="node" data-node-id="1" data-x="-703.7891845703122" data-y="-354.6422077525741">
+    <span class="caption">Provider</span>
+  </li>
+  <li class="node" data-node-id="2" data-x="-1344.6327556263323" data-y="1083.2594438032663">
+    <span class="caption">Trip</span>
+  </li>
+  <li class="node" data-node-id="3" data-x="-2328.9445703679858" data-y="-463.7310028076162">
+    <span class="caption">Activity</span>
+  </li>
+  <li class="node" data-node-id="4" data-x="54.07178727063224" data-y="214.37834609638554">
+    <span class="caption">Transport</span>
+  </li>
+  <li class="node" data-node-id="5" data-x="-3394.152623956855" data-y="1001.11414112828">
+    <span class="caption">Season</span>
+  </li>
+  <li class="relationship" data-from="0" data-to="2">
+    <span class="type">HAS_TRIP</span>
+  </li>
+  <li class="relationship" data-from="2" data-to="0">
+    <span class="type">STARTS_IN</span>
+  </li>
+  <li class="relationship" data-from="2" data-to="0">
+    <span class="type">ENDS_IN</span>
+  </li>
+  <li class="relationship" data-from="1" data-to="2">
+    <span class="type">OWNS_TRIP</span>
+  </li>
+  <li class="relationship" data-from="1" data-to="0">
+    <span class="type">LOCATED_IN</span>
+  </li>
+  <li class="relationship" data-from="0" data-to="3">
+    <span class="type">IS_GOOD_FOR</span>
+  </li>
+  <li class="relationship" data-from="2" data-to="4">
+    <span class="type">TRAVELS_BY</span>
+  </li>
+  <li class="relationship" data-from="2" data-to="5">
+    <span class="type">GOOD_FOR_SEASON</span>
+  </li>
+  <li class="relationship" data-from="0" data-to="5">
+    <span class="type">GOOD_FOR_PLACE</span>
+  </li>
+  <li class="relationship" data-from="0" data-to="4">
+    <span class="type">SUPPORTS_TRANSPORT</span>
+  </li>
+  <li class="relationship" data-from="3" data-to="5">
+    <span class="type">GOOD_FOR_SEASON</span>
+  </li>
+</ul>
