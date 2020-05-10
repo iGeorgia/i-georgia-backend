@@ -1,5 +1,5 @@
 import { TaskEither, taskify } from "fp-ts/lib/TaskEither";
-import fs from "fs";
+import * as fs from "fs";
 
 export const debug = (key?: string) => <T>(tag: T): T => {
     console.log(key ? key : __filename, ":", tag);
@@ -13,7 +13,11 @@ export const raise = (e: Error) => {
     throw e;
 };
 
+export const errorFromReason = (reason: unknown): Error =>
+    new Error(String(reason));
+
 export default {
     debug,
+    errorFromReason,
     readFile: readFileTask,
 };

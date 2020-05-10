@@ -1,3 +1,4 @@
 import { main } from "./src/main";
 
-(async () => await main())();
+main().then(url => console.log(`iGeorgia API is ready at ${url}`))
+      .catch(console.error);
