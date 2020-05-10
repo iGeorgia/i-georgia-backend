@@ -1,5 +1,15 @@
-schema: '..//schema/graphql/i-georgia.graphql'
+schema: './src/graphql/schema.graphql'
 generates:
-  src/types/gql.ts:
-    - typescript-operations
-    - typescript
+  src/types/graphql.ts:
+    plugins:
+      - typescript
+      - typescript-resolvers
+    config:
+      scalars:
+        Name: string
+      wrapFieldDefinitions: false
+      flattenGeneratedTypes: true
+      avoidOptionals: true
+      constEnums: true
+      immutableTypes: true
+      contextType: ./index#APIContext

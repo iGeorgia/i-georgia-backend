@@ -1,26 +1,35 @@
 {
   "compilerOptions": {
+    "allowJs": false,
+    "declaration": false,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "incremental": true,
-    "outDir": "build",
+    "isolatedModules": false,
     "lib": [
       "esnext"
     ],
-    "target": "esnext",
     "module": "commonjs",
     "moduleResolution": "node",
-    "removeComments": true,
-    "sourceMap": false,
+    "noEmitOnError": true,
     "noErrorTruncation": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "allowJs": false,
+    "paths": {
+      "@types": [
+        "src/types"
+      ]
+    },
+    "outDir": "build",
+    "removeComments": true,
     "skipLibCheck": false,
+    "sourceMap": false,
     "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": false,
-    "noEmitOnError": true,
-    "esModuleInterop": true,
-    "declaration": false
+    "target": "esnext",
+    "typeRoots": [
+      "./src/types"
+    ]
   },
   "exclude": [
     "node_modules"

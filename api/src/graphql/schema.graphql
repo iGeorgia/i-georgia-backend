@@ -1,0 +1,27 @@
+scalar Name
+
+enum Direction {
+    IN
+    OUT
+}
+
+enum Relation {
+    HAS_TRIP_TO
+}
+
+directive @relation(
+    name: Relation!, direction: Direction!
+) on FIELD_DEFINITION
+
+type Place {
+    name: Name!
+    destinations: [Place!]! @relation(name: HAS_TRIP_TO, direction: OUT)
+}
+
+type Mutation {
+    addPlace(name: Name!, to: [ID!]!): [Place!]!
+}
+
+type Query {
+    getPlace(name: String!): [Place!]!
+}

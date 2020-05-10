@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "nodemon",
     "start": "ts-node -T index.ts",
-    "update-schema": "graphql-codegen"
+    "schema": "graphql-codegen",
+    "postinstall": "npm run schema"
   },
   "repository": {
     "type": "git",
@@ -20,15 +21,18 @@
   },
   "homepage": "https://github.com/iGeorgia/i-georgia-backend#readme",
   "dependencies": {
+    "apollo-datasource": "^0.7.0",
     "apollo-server": "^2.13.0",
     "dotenv": "^8.2.0",
     "fp-ts": "^2.5.4",
+    "graphql-upload": "^10.0.0",
     "neo4j-driver": "^4.0.2",
     "prettier": "^2.0.5",
     "ts-node": "^8.10.1",
     "typescript": "^3.8.3"
   },
   "devDependencies": {
+    "@graphql-codegen/add": "^1.13.5",
     "@graphql-codegen/cli": "^1.8.3",
     "@graphql-codegen/typescript-operations": "^1.8.3",
     "@graphql-codegen/typescript-resolvers": "^1.8.3",
